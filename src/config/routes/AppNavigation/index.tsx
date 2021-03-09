@@ -22,7 +22,9 @@ const AppStackScreens = () => {
         showLabel: false,
         style: {
           borderRadius: 10,
-          backgroundColor: 'red',
+          // backgroundColor: 'red',
+          height: 60,
+          marginBottom: 10,
           width: '90%',
           alignSelf: 'center'
         },
