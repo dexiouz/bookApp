@@ -14,7 +14,6 @@ const Login = (props: LoginProps) => {
           <Text style={{color: '#fff', marginTop: 25}}>Join Our Community</Text>
         </View>
       </View>
-
       <LoginForm />
     </View>
   );
