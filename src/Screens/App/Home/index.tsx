@@ -1,22 +1,23 @@
-import * as React from 'react';
-import { ScrollView, View, Text, FlatList } from 'react-native';
+import React, {useEffect} from 'react';
+import {ScrollView, View, Text, FlatList} from 'react-native';
 import {HeaderWithProfile} from '../../../components';
 import PopularBooks from './PopularBooks';
 import NewBooks from './NewBooks';
 import {styles} from './styles';
+
+// import {getBooks} from '../../../api';
 interface HomeProps {}
 const data = [1];
+
+
 const Home = (props: HomeProps) => {
+ 
   return (
     <View style={styles.container}>
       <HeaderWithProfile />
-      <FlatList  
-       ListHeaderComponent={
-        <PopularBooks/>
-      }
-       ListFooterComponent={
-        <NewBooks/>
-      }
+      <FlatList
+        ListHeaderComponent={<PopularBooks  />}
+        ListFooterComponent={<NewBooks />}
         showsVerticalScrollIndicator={false}
         data={data}
         renderItem={({item}) => <Text></Text>}
@@ -27,5 +28,3 @@ const Home = (props: HomeProps) => {
 };
 
 export default Home;
-
-
