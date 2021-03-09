@@ -4,17 +4,30 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Rating} from 'react-native-ratings';
 import {styles} from './styles';
 import { useNavigation } from '@react-navigation/native';
-interface HomeProps {}
-
-const Home = (props: HomeProps) => {
+interface Props {
+  item: any
+}
+const index:React.FC<Props> = ({item}) => {
   const navigation = useNavigation();
+  const title = item?.volumeInfo?.title || '';
+  const author = item?.volumeInfo?.authors || '';
+  const image = item?.volumeInfo?.imageLinks?.smallThumbnail || '';
+  const rating = item?.volumeInfo?.averageRating || 0;
+  const link = item?.selfLink; 
+  const realAuthor = author[0] !== undefined ? author[0] : '';
+  const useAuthorName = realAuthor ? realAuthor.slice(0, 19) : realAuthor; 
+   
   return ( 
       <TouchableOpacity
-      onPress={()=>navigation.navigate("BookDetails")}
+      onPress={()=>navigation.navigate("BookDetails", {
+        link
+      })}
         style={styles.bookContainer}>
         <View style={styles.imageView}>
           <Image
-            source={require('../../../../assets/images/modified.png')}
+            source={{
+              uri: image,
+            }}
             style={styles.image}
             resizeMode="cover"
           />
@@ -22,14 +35,14 @@ const Home = (props: HomeProps) => {
         <View style={{backgroundColor: '', width: '55%'}}>
           <View>
             <Text style={styles.text1}>
-              Yves Saint Laurent
+              {title}
             </Text>
-            <Text style={{fontSize: 12}}>Suzy Menkes </Text>
+            <Text style={{fontSize: 12}}>{useAuthorName}</Text>
           </View>
 
           <View style={{marginTop: 30, alignItems: 'flex-start'}}>
             <Rating
-              startingValue={2}
+              startingValue={+rating}
               type="star"
               ratingCount={5}
               imageSize={23}
@@ -46,4 +59,4 @@ const Home = (props: HomeProps) => {
   );
 };
 
-export default Home;
+export default index;
