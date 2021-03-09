@@ -2,7 +2,9 @@ import React, {useMemo, useEffect, useReducer, useContext} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {View, Text} from 'react-native';
 import {AuthContext} from '../../context/authContext';
-import {NavigationContainer} from '@react-navigation/native'; 
+import {NavigationContainer} from '@react-navigation/native';  
+import {createStackNavigator} from '@react-navigation/stack';
+const AuthStack = createStackNavigator();
 //import Auth Screens
 import AuthStackScreens from './AuthNavigation';
 //import App Screens
@@ -103,7 +105,9 @@ const AppRoute = () => {
       <> 
           <NavigationContainer>
             {loginState.userToken === null ? (
-              <AppStackScreens />
+              <>
+              <AppStackScreens /> 
+              </>
             ) : (
               <AuthStackScreens />
             )}

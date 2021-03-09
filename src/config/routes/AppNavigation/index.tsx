@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import HomeNavigator from './HomeNavigator';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons'; 
 const Tab = createBottomTabNavigator();
@@ -29,7 +30,7 @@ const AppStackScreens = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeNavigator}
         options={{
           tabBarLabel: '',
           tabBarIcon: ({color, size}) => (
