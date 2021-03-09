@@ -1,12 +1,10 @@
 import React, {FC} from 'react';
-import {
-  StyleSheet,
+import { 
   Text,
-  View,
-  TouchableOpacity,
+  View, 
   TextInput,
 } from 'react-native';
-
+import {styles} from './styles';
 export enum Type {
   default = 'default',
   numberPad = 'number-pad',
@@ -33,7 +31,7 @@ interface InputProps {
   inputStyle?: object;
 }
 
-export const BaseInput: FC<InputProps> = ({
+ const BaseInput: FC<InputProps> = ({
   style,
   value,
   placeholder,
@@ -70,20 +68,4 @@ export const BaseInput: FC<InputProps> = ({
   );
 };
 
-export const styles = StyleSheet.create({
-  inputContainer: {
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    // height: 48,
-    width: '100%',
-    // backgroundColor: 'rgba(48, 48, 48, 0.3)',
-  },
-  errorMessage: {
-    color: 'red',
-    fontSize: 12,
-    // marginTop: 3,
-  },
-});
+export default BaseInput;
