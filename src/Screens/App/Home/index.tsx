@@ -1,18 +1,31 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-
+import { ScrollView, View, Text, FlatList } from 'react-native';
+import {HeaderWithProfile} from '../../../components';
+import PopularBooks from './PopularBooks';
+import NewBooks from './NewBooks';
+import {styles} from './styles';
 interface HomeProps {}
-
+const data = [1];
 const Home = (props: HomeProps) => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <HeaderWithProfile />
+      <FlatList  
+       ListHeaderComponent={
+        <PopularBooks/>
+      }
+       ListFooterComponent={
+        <NewBooks/>
+      }
+        showsVerticalScrollIndicator={false}
+        data={data}
+        renderItem={({item}) => <Text></Text>}
+        keyExtractor={(item) => Math.random().toString()}
+      />
     </View>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({
-  container: {}
-});
+
