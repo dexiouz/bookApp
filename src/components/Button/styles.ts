@@ -1,16 +1,16 @@
 import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2F195F',
-    borderRadius: 5,
+    backgroundColor: '#000',
+    borderRadius: 15,
     paddingVertical: 12,
     paddingHorizontal: 12,
-    marginBottom: 10
+    marginBottom: 10,
+    height: 46
   },
   text: {
     fontSize: 18,
-    color: "#fff",
-    fontWeight: "bold",
+    color: "#fff", 
     alignSelf: "center",
     textTransform: "uppercase"
   }
