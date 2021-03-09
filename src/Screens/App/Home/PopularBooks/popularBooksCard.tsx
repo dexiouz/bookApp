@@ -1,11 +1,13 @@
 import * as React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {styles} from './styles';
 interface HomeProps {}
 
 const Home = (props: HomeProps) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>navigation.navigate("BookDetails")}>
       <View
         style={{
           backgroundColor: '',
