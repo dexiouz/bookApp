@@ -2,9 +2,7 @@ import React, {useContext} from 'react';
 import {Image} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons'; 
 const Tab = createBottomTabNavigator();
 
 //import App Screens

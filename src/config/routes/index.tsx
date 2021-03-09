@@ -102,7 +102,7 @@ const AppRoute = () => {
     <AuthContext.Provider value={authContext}>
       <> 
           <NavigationContainer>
-            {loginState.userToken !== null ? (
+            {loginState.userToken === null ? (
               <AppStackScreens />
             ) : (
               <AuthStackScreens />
