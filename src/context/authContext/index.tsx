@@ -1,5 +1,5 @@
 import React, {createContext} from 'react';
-interface p {
+interface P {
   value: any
 }
-export const AuthContext = createContext({});
+export const AuthContext = createContext<any>({});
