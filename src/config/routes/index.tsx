@@ -1,4 +1,4 @@
-import React, {useMemo, useEffect, useReducer, useContext} from 'react';
+import React, {useMemo, useEffect, useReducer, useState} from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 import {View, Text} from 'react-native';
 import {AuthContext} from '../../context/authContext';
@@ -16,6 +16,7 @@ import {Alert} from 'react-native';
 import {useNetInfo} from '@react-native-community/netinfo';
 // import Empty from '../../components/EmptyComponent';
 import Entypo from 'react-native-vector-icons/Entypo';
+
 const AppRoute = () => {
   // const {signOut} = useContext(AuthContext);
   const netInfo = useNetInfo();
@@ -34,6 +35,7 @@ const AppRoute = () => {
   };
 
   const loginReducer = (prevState:any, action: any) => {
+  
     switch (action.type) {
       case 'RETRIEVE_TOKEN':
         return {
@@ -66,7 +68,7 @@ const AppRoute = () => {
           await AsyncStorage.setItem('token', token);
           
         } catch (e) {
-          console.log("Error")
+          console.log(e, "Error")
         }
         dispatch({type: 'LOGIN', email, token});
       },
@@ -88,6 +90,7 @@ const AppRoute = () => {
   };
   useEffect(() => {
     getToken();
+
   }, []);
 
   if (loginState.isLoading) {
@@ -104,7 +107,7 @@ const AppRoute = () => {
     <AuthContext.Provider value={authContext}>
       <> 
           <NavigationContainer>
-            {loginState.userToken === null ? (
+            {loginState.userToken !== null ? (
               <>
               <AppStackScreens /> 
               </>
