@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import React, {useState, useContext} from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import {Formik} from 'formik';
 import * as yup from 'yup';
+import {AuthContext} from '../../../context/authContext';
 import {styles} from './styles';
 import {Input, Button} from '../../../components';
 
-interface LoginProps {}
+interface LoginProps {
+  fingerAuth: () => void
+}
 
 // validating form with yup
 const validationSchema = yup.object().shape({
@@ -24,14 +27,15 @@ const initialValues = {
   password: '',
 };
 
-const LoginForm = (props: LoginProps) => { 
+const LoginForm:React.FC<LoginProps> = ({fingerAuth}) => { 
   const [showPassword, setShowPassword] = useState(true);
+  const {signIn} = useContext(AuthContext);
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
-        console.log(values, 'OtpPage');
+      onSubmit={(values) => { 
+        signIn(values.email, 'd23nh6890knsaweeee')
       }}>
       {({values, handleChange, handleSubmit, touched, errors}) => (
         <View style={styles.container}>
@@ -68,7 +72,7 @@ const LoginForm = (props: LoginProps) => {
               }
             />
             <Button title="Login" onPress={handleSubmit} />
-            <TouchableOpacity style={{alignSelf: 'center'}}>
+            <TouchableOpacity onPress={()=>fingerAuth()} style={{alignSelf: 'center'}}>
               <Ionicons name="finger-print" size={45} />
             </TouchableOpacity>
           </View>
