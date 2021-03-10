@@ -5798,6 +5798,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-fingerprint-scanner@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-fingerprint-scanner/-/react-native-fingerprint-scanner-6.0.0.tgz#ecb47ad0682d2a66a5e126d2b9e4d95e73c8dbf2"
+  integrity sha512-8VoKSA0Z0kWnIni96yABZfUUzfmWFXQEXcELwWr1CNLloPt3WoPptYb/6pGsBcH0YxSsW3X4+C8tl0clgyBsvA==
+
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz#942bbf2963bbf49fa79593600ee9d7b5dab3cfc0"
