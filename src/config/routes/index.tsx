@@ -14,7 +14,7 @@ const AppRoute = () => {
   const netInfo = useNetInfo();
   const handleSignOut = async () => {
     try {
-      await AsyncStorage.clear();
+      await AsyncStorage.removeItem('token');
     }catch(e){
       console.log('There was an error')
     } 
@@ -54,10 +54,10 @@ const AppRoute = () => {
   const [loginState, dispatch] = useReducer(loginReducer, initialLoginState);
   const authContext = useMemo(
     () => ({
-      signIn: async (token: string, email: string) => {
+      signIn: async (token : string, email: string) => {
         try {
           await AsyncStorage.setItem('token', token);
-          
+          await AsyncStorage.setItem('email', email)
         } catch (e) {
           console.log(e, "Error")
         }
