@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {Rating} from 'react-native-ratings';
+import FastImage from 'react-native-fast-image';
 import {styles} from './styles';
 import { useNavigation } from '@react-navigation/native';
 interface Props {
@@ -24,13 +25,19 @@ const index:React.FC<Props> = ({item}) => {
       })}
         style={styles.bookContainer}>
         <View style={styles.imageView}>
-          <Image
+        {
+            image ? (
+            <FastImage
+            style={{width: '100%', height: '100%'}}
             source={{
-              uri: image,
+                uri: image,
+                priority: FastImage.priority.normal,
             }}
-            style={styles.image}
-            resizeMode="cover"
-          />
+            resizeMode={FastImage.resizeMode.contain}
+        />
+            ):<Text style={{backgroundColor: 'red'}}>Loading Image</Text>
+          }
+         
         </View>
         <View style={{backgroundColor: '', width: '55%'}}>
           <View>

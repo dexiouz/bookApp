@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Text, View, Image, ScrollView} from 'react-native';
 import axios from 'axios';
 import {Rating} from 'react-native-ratings';
+import FastImage from 'react-native-fast-image';
 import {Button, HeaderWithActions, Loader} from '../../../components'; 
 import {styles} from './styles';
 type route = {
@@ -45,15 +46,19 @@ const BookDetails: React.FC<BookDetailsProps> = ({route, navigation}) => {
           <ScrollView showsVerticalScrollIndicator={false}>
           <View style={{alignItems: 'center', marginVertical: 10}}>
             <View style={{width: 216, height: 320}}>
-              {image ? (
-                <Image
-                  source={{
-                    uri: image,
-                  }}
-                  style={{width: '100%', height: '100%'}}
-                  resizeMode="cover"
-                />
-              ) : null}
+               
+              {
+            image ? (
+            <FastImage
+            style={{width: '100%', height: '100%'}}
+            source={{
+                uri: image,
+                priority: FastImage.priority.normal,
+            }}
+            resizeMode={FastImage.resizeMode.contain}
+        />
+            ):<Text>Loading Image</Text>
+          }
             </View>
             <Text style={{fontSize: 24, color: '#06070D', marginVertical: 6}}>
               {title}
