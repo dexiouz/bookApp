@@ -18,5 +18,11 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: '#fff'
-  }
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  textView:{width: '50%', marginLeft: 20, marginBottom: 70}
 });
