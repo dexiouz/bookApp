@@ -7,6 +7,9 @@ import * as yup from 'yup';
 import {AuthContext} from '../../../context/authContext';
 import {styles} from './styles';
 import {Input, Button} from '../../../components';
+import {WToast} from 'react-native-smart-tip'
+
+// Base 
 
 interface LoginProps {
   fingerAuth: () => void
@@ -26,16 +29,45 @@ const initialValues = {
   email: '',
   password: '',
 };
+interface check{
+  email: string,
+  password: string,
+}
+
+const show = (msg: string) => {
+  const toastOpts = {
+      data: msg,
+      textColor: '#ffffff',
+      backgroundColor: '#444444',
+      duration: WToast.duration.LONG, //1.SHORT 2.LONG
+      position: WToast.position.TOP, // 1.TOP 2.CENTER 3.BOTTOM
+  }
+  
+  WToast.show(toastOpts)
+}
 
 const LoginForm:React.FC<LoginProps> = ({fingerAuth}) => { 
   const [showPassword, setShowPassword] = useState(true);
   const {signIn} = useContext(AuthContext);
+  const check = ({email, password}: check) => {
+    if(email === "test@gmail.com"  && password === "12345"){
+      signIn('d23nh6890knsaweeee', email)
+    }else if(email !== "test@gmail.com"){
+      show("This email does not exist!")
+    }else if(password !== "12345"){
+      console.log("Password is incorrect")
+    }else{
+      console.log("Check yor login credentials")
+    }
+  }
+
+ 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => { 
-        signIn(values.email, 'd23nh6890knsaweeee')
+      onSubmit={(values: check) => {  
+        check(values)
       }}>
       {({values, handleChange, handleSubmit, touched, errors}) => (
         <View style={styles.container}>

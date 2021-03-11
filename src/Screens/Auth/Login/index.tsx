@@ -31,7 +31,7 @@ const Login = (props: LoginProps) => {
       optionalConfigObject,
     )
       .then(() => {
-        signIn('dex@g.co', 'eurn48209ojsnsdj');
+        signIn('token', 'bookLover@gmail.com');
       })
       .catch((error: string) => {
         console.log(error, 'error');
