@@ -55,9 +55,9 @@ const LoginForm:React.FC<LoginProps> = ({fingerAuth}) => {
     }else if(email !== "test@gmail.com"){
       show("This email does not exist!")
     }else if(password !== "12345"){
-      console.log("Password is incorrect")
+      show("Password is incorrect")
     }else{
-      console.log("Check yor login credentials")
+      show("Check yor login credentials")
     }
   }
 
